@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from "next/link"
 import { Poppins } from 'next/font/google'
-import { BadgeCheck } from 'lucide-react';
+import { BadgeCheck, ChevronRight, Search  } from 'lucide-react';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -28,7 +28,7 @@ export default function Home() {
       <Link href=''>Ifood Card</Link>
       </div>
       <div className='flex flex-row gap-6 ml-72'>
-        <button className='text-red-500'>criar conta</button>
+        <button className='text-red-500 font-semibold'>criar conta</button>
         <button className='bg-red-500 rounded text-white pt-2 pb-2 pl-6 pr-6'>Entrar</button>
       </div>
         
@@ -36,11 +36,14 @@ export default function Home() {
     </header>
      <div className='flex flex-col items-center'>
       <div className='mt-60 flex flex-col justify-self-center absolute z-0'>
-        <h1 className='text-4xl text-center pb-3 font-bold'>Faça mercado no iFood</h1>
+        <h1 className='text-[42px] text-center pb-3 font-bold'>Faça mercado no iFood</h1>
         <h3>Entregamos tudo que você precisa na porta de sua casa, de horti-fruti a itens de limpeza</h3>
         <form action="Pesquisar" className='flex justify-center mt-16 gap-4'>
-          <input type="text" placeholder='Em qual endereço você está?' className='bg-gray-100 w-80 pt-3 pb-3 pr-8 pl-8 rounded-lg text-left'/>
-          <button className='bg-red-600 text-white pt-3 pb-3 pl-6 pr-6 rounded-lg'>Ver mercados proximos</button>
+          <div className='flex flex-row bg-gray-200/50 w-[350px] h-12 pt-3 pb-3 pr-8 rounded-lg gap-3'>
+          <span><Search className='h-4 w-4 mt-1 ml-4 text-red-500'/></span>
+          <input type="text" placeholder='Em qual endereço você esta?' className='bg-gray-100 w-full h-full text-sm'/>
+          </div>
+          <button className='bg-red-500 text-white pt-3 pb-3 pl-7 pr-7 rounded-lg text-sm font-semibold'>Ver mercados próximos</button>
         </form>
         <div className='flex flex-row mt-12 gap-2 text-xs justify-center'>
           <button className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Frios</button>
@@ -77,8 +80,8 @@ export default function Home() {
 
       <div className='flex flex-row absolute justify-center -bottom-80 inset-x-96 gap-8'>
       <button className='bg-red-600 w-96 h-52 z-10 flex  gap-2 rounded-[24px] duration-100 transform hover:scale-105 transition ease-linear'>
-        <p className='text-white text-2xl block mt-10 ml-4 '>Restaurante</p>
-        <div className='bg-red-800 w-40 py-2 text-white absolute bottom-8 text-center ml-4 items-center rounded-full'>Ver Opções</div>
+        <p className='text-white text-3xl block mt-10 ml-4 font-bold '>Restaurante</p>
+        <div className='bg-red-700/75 w-36 h-9 py-2 text-white absolute bottom-8 text-center ml-5 items-center rounded-xl flex flex-row justify-center text-sm font-semibold'>Ver opções <ChevronRight className='h-4 w-4 ml-2 font-semibold' /></div>
         <div className='absolute ml-40 -bottom-0'>
         <Image
       src="/image/hamburguer.png"
@@ -92,8 +95,8 @@ export default function Home() {
       </button>
       
       <button className='bg-lime-500/75 w-96 h-52 z-10 flex rounded-[24px] duration-100 transform hover:scale-105 transition ease-linear'>
-      <p className='text-white text-2xl block mt-10 ml-4 '>Mercado</p>
-        <div className='bg-lime-800/50 w-40 py-2 text-white absolute bottom-8 text-center ml-4 items-center rounded-full '>Ver Opções</div>
+      <p className='text-white text-3xl block mt-10 ml-4 font-bold '>Mercado</p>
+        <div className='bg-lime-600/75 w-36 h-9 py-2 text-white absolute bottom-8 text-center ml-5 items-center rounded-xl flex flex-row justify-center text-sm font-semibold '>Buscar lojas <ChevronRight className='h-4 w-4 ml-2 font-semibold' /></div>
         <div className='absolute ml-40 -bottom-0'>
         <Image
       src="/image/market.png"
@@ -120,7 +123,7 @@ export default function Home() {
         style={{ right: '20px', bottom: '0' }}
       />
      </div>
-     <p className='mt-3 font-semibold'>Bebidas</p>
+     <p className='mt-3 font-semibold flex flex-row justify-center'>Bebidas <ChevronRight className='h-4 w-4 text-red-500 mt-1' /></p>
   </a>
 
   <a className="flex flex-col w-36 h-32 justify-end p-4 items-center mr-3 cursor-pointer duration-100 transform hover:scale-105 transition ease-linear">
@@ -134,7 +137,7 @@ export default function Home() {
         style={{ right: '45px', bottom: '0' }}
       />
      </div>
-     <p className='mt-3 font-semibold'>Farmácia</p>
+     <p className='mt-3 font-semibold flex flex-row justify-center'>Farmácia <ChevronRight className='h-4 w-4 text-red-500 mt-1' /></p>
   </a>
 
   <a className="flex flex-col w-36 h-32 justify-end p-4 items-center ml-4 cursor-pointer duration-100 transform hover:scale-105 transition ease-linear">
@@ -148,7 +151,7 @@ export default function Home() {
         style={{ right: '30px', bottom: '0' }}
       />
      </div>
-     <p className='mt-3 font-semibold'>Pet Shop</p>
+     <p className='mt-3 font-semibold flex flex-row justify-center'>Pet Shop <ChevronRight className='h-4 w-4 text-red-500 mt-1' /></p>
   </a>
         
  </div>
@@ -260,8 +263,82 @@ export default function Home() {
     </a>
 
     <div className='flex justify-center'>
- <hr className='w-2/3 bg-gray-50 flex justify-center items-center mb-20' />
+ <hr className='w-2/3 bg-gray-50 flex justify-center items-center mb-16' />
   </div>
+
+  <div className='flex flex-col justify-start'>
+    <h1 className='text-xl font-semibold ml-80 mb-10'>Os melhores mercados</h1>
+    {/* Mercados */}
+    <div className='flex flex-row mb-10 gap-4 w-2/3 ml-80'>
+      <a href="" className=' w-60 h-32 border border-gray-200 rounded-md hover:border-fuchsia-950 z-0'>
+        <div className=' flex flex-row z-10'>
+        <Image
+        className="w-14 h-14 ml-5 mt-9 rounded-full"
+        src="/image/dia.png"
+        width={149}
+        height={150}
+        alt="Dia"
+      />
+        <div className='flex flex-col mt-14 ml-2 text-xs'>
+          <p className='font-semibold'>Dia Supermercado</p>
+       </div>
+     </div>
+      </a>
+      <a href="" className='bg-white w-60 h-32 border border-gray-200 rounded-md hover:border-fuchsia-950'> <div className=' flex flex-row z-12'>
+        <Image
+        className="w-14 h-14 ml-5 mt-9 rounded-full"
+        src="/image/big.png"
+        width={149}
+        height={150}
+        alt="Big"
+      />
+        <div className='flex flex-col mt-14 ml-2 text-xs'>
+          <p className='font-semibold'>Big</p>
+
+
+        </div>
+        </div></a>
+      <a href="" className='bg-white w-60 h-32 border border-gray-200 rounded-md hover:border-fuchsia-950'> <div className=' flex flex-row z-12'>
+        <Image
+        className="w-14 h-14 ml-5 mt-9 rounded-full"
+        src="/image/eataly.png"
+        width={149}
+        height={150}
+        alt="Eataly"
+      />
+        <div className='flex flex-col mt-14 ml-2 text-xs'>
+          <p className='font-semibold'>Eataly</p>
+
+
+        </div>
+        </div></a>
+    </div>
+   </div>
+    
+
+   <div className="flex justify-center items-center space-x-12 p-8">
+  {/* Entregas */}
+  <div className="flex justify-end space-x-6">
+    <Image className='h-48 w-48' src="/image/delivery-man.png" width={242} height={251} alt="Delivery man" />
+    <div className='pt-20 pb-20'>
+      <h2 className="text-2xl font-bold">Quer fazer entregas pelo iFood?</h2>
+      <p className="text-gray-600 mt-2">Faça agora o seu cadastro e comece o quanto antes.</p>
+      <button className="bg-red-500 rounded text-white mt-4 px-6 py-2">Saiba mais</button>
+    </div>
+  </div>
+
+  {/* Cadastro Restaurante */}
+  <div className="flex items-center space-x-6">
+    <Image className='h-48 w-48' src="/image/market2.png" width={242} height={251} alt="Market 2" />
+    <div>
+      <h2 className="text-2xl font-bold">A sua fome de crescer tá no iFood</h2>
+      <p className="text-gray-600 mt-2">Cadastre seu restaurante ou o seu mercado.</p>
+      <button className="bg-red-500 rounded text-white mt-4 px-6 py-2">Saiba mais</button>
+    </div>
+  </div>
+</div>
+
+  
 
     </main>
   );
