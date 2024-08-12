@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from "next/link"
 import { Poppins } from 'next/font/google'
-import { BadgeCheck, ChevronRight, Search  } from 'lucide-react';
+import { BadgeCheck, ChevronRight, Facebook, Search, Twitter, Youtube, Instagram  } from 'lucide-react';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -316,27 +316,92 @@ export default function Home() {
    </div>
     
 
-   <div className="flex justify-center items-center space-x-12 p-8">
+   <div className="flex justify-center items-center space-x-20 p-8 mt-10 mb-20">
   {/* Entregas */}
-  <div className="flex justify-end space-x-6">
-    <Image className='h-48 w-48' src="/image/delivery-man.png" width={242} height={251} alt="Delivery man" />
-    <div className='pt-20 pb-20'>
-      <h2 className="text-2xl font-bold">Quer fazer entregas pelo iFood?</h2>
-      <p className="text-gray-600 mt-2">Faça agora o seu cadastro e comece o quanto antes.</p>
-      <button className="bg-red-500 rounded text-white mt-4 px-6 py-2">Saiba mais</button>
+  <div className="flex space-x-6">
+    <Image className='h-52 w-52 mt-28' src="/image/delivery-man.png" width={242} height={251} alt="Delivery man" />
+    <div className=''>
+      <h2 className="text-3xl font-bold">Quer fazer <br/>entregas pelo <br/>iFood?</h2>
+      <p className="text-gray-600 mt-2 text-sm">Faça agora o seu cadastro e <br/> comece o quanto antes.</p>
+      <button className="bg-red-600 rounded text-white mt-4 px-6 py-2 hover:bg-red-500">Saiba mais</button>
     </div>
   </div>
 
   {/* Cadastro Restaurante */}
-  <div className="flex items-center space-x-6">
-    <Image className='h-48 w-48' src="/image/market2.png" width={242} height={251} alt="Market 2" />
+  <div className="flex space-x-6">
+    <Image className='h-52 w-52 mt-28' src="/image/market2.png" width={242} height={251} alt="Market 2" />
     <div>
-      <h2 className="text-2xl font-bold">A sua fome de crescer tá no iFood</h2>
-      <p className="text-gray-600 mt-2">Cadastre seu restaurante ou o seu mercado.</p>
-      <button className="bg-red-500 rounded text-white mt-4 px-6 py-2">Saiba mais</button>
+      <h2 className="text-3xl font-bold">A sua fome <br /> de crescer tá <br /> no iFood</h2>
+      <p className="text-gray-600 mt-2 text-sm">Cadastre seu restaurante ou <br /> o seu mercado.</p>
+      <button className="bg-red-600 rounded text-white mt-4 px-6 py-2  hover:bg-red-500">Saiba mais</button>
     </div>
   </div>
 </div>
+
+
+<div className='flex justify-center'>
+ <hr className='w-2/3 bg-gray-50 flex justify-center items-center mb-16' />
+  </div>
+
+  {/* Voce tem fome de que? */}
+  <div className='flex flex-row justify-center gap-14 mb-10'>
+      <div className=''>
+        <h2 className='text-3xl font-bold mb-14'>Você tem <br /> fome do <br /> que?</h2>
+        <p className='text-sm'>Descubra como é ser um foodlover e <br /> faça parte da nossa revolução!</p>
+        <button className="bg-red-600 rounded text-white mt-4 px-4 py-3 text-sm">Saiba mais</button>
+      </div>
+      <Image src="/image/bannerPeople.png" width={732} height={372} alt="Pessoas"></Image>
+
+  </div>
+
+  {/* banner beneficios */}
+  <div className='flex justify-center mt-20 mb-10 w-2/3 ml-72'>
+  <Image className='w-full' src="/image/beneficios.png" width={900} height={75} alt="Beneficios"></Image>
+  </div>
+
+  {/* listra cinza */}
+  <div className='w-full bg-gray-100 h-16 mb-10'>
+
+  </div>
+
+  {/* links */}
+
+  <div className='flex justify-start ml-72'>
+    <div className='flex flex-col justify-center gap-6 mr-48'>
+      <h1 className='font-bold'>Ifood</h1>
+      <a className='text-sm' href="">Site Institucional</a>
+      <a className='text-sm' href="">Fale Conosco</a>
+      <a className='text-sm' href="">Carreiras</a>
+      <a className='text-sm' href="">Entregadores</a>
+    </div>
+    <div className='flex flex-col justify-center gap-6 mr-12'>
+      <h1 className='font-bold'>Descubra</h1>
+      <a className='text-sm' href="">Cadastre seu Restaurante ou Mercado</a>
+      <a className='text-sm' href="">iFood Shop</a>
+      <a className='text-sm' href="">iFood Card</a>
+      <a className='text-sm' href="">Blog iFood Empresas</a>
+    </div>
+    <div>
+      <h1 className='font-bold mb-6'>Sobre</h1>
+      <div className='bg-red-400 h-12 w-56 flex flex-row'>
+        <div className='w-full flex justify-start items-center gap-3 border-2 border-red-500'>
+        <Facebook className='h-10 w-10 text-gray-500 border-2 border-red-500 hover:text-gray-700 ' />
+      <Twitter className='h-10 w-10 text-gray-500 border-2 border-red-500 hover:text-gray-700' />
+      <Youtube className='h-10 w-10 text-gray-500 border-2 border-red-500 hover:text-gray-700' />
+      <Instagram className='h-10 w-10 text-gray-500 border-2 border-red-500 hover:text-gray-700' />
+
+        </div>
+      
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div className='flex justify-center'>
+ <hr className='w-2/3 bg-gray-50 flex justify-center items-center mb-16 mt-10' />
+  </div>
 
   
 
