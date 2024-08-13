@@ -1,18 +1,31 @@
+"use client";
+
 import Image from 'next/image'
 import Link from "next/link"
 import { Poppins } from 'next/font/google'
 import { BadgeCheck, ChevronRight, Facebook, Search, Twitter, Youtube, Instagram  } from 'lucide-react';
+import { useState } from 'react';
+import Modal from '@/components/modal';
+
+
 
 const poppins = Poppins({
   subsets: ['latin'],
   weight: '300'
 })
 export default function Home() {
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const OpenModal = () => {
+    setModalOpen(true)
+  }
+
+
   return (
-    <main className={poppins.className}>
+    <main>
      <header className="bg-gray-100 w-full h-32 flex flex-row justify-start gap-12 items-center">
      <div className=' ml-80'>
-     <Image
+     <Image className='w-24 h-24'
       src="/image/ifood.png"
       width={72}
       height={72}
@@ -22,47 +35,77 @@ export default function Home() {
      </div>
       <div className="flex flex-row gap-12">
      
-      <Link href=''>Entregador</Link>
-      <Link href=''>Restaurante e Mercado</Link>      
-      <Link href=''>Carreira</Link>
-      <Link href=''>Ifood Card</Link>
+      <Link href='' className='text-sm font-semibold'>Entregador</Link>
+      <Link href='' className='text-sm font-semibold'>Restaurante e Mercado</Link>      
+      <Link href='' className='text-sm font-semibold'>Carreira</Link>
+      <Link href='' className='text-sm font-semibold'>Ifood Card</Link>
       </div>
       <div className='flex flex-row gap-6 ml-72'>
-        <button className='text-red-500 font-semibold'>criar conta</button>
-        <button className='bg-red-500 rounded text-white pt-2 pb-2 pl-6 pr-6'>Entrar</button>
+        <button className='text-red-500 font-semibold text-sm'>criar conta</button>
+        <button className='bg-red-500 rounded text-white pt-2 pb-2 pl-6 pr-6 font-semibold'>Entrar</button>
       </div>
         
         
     </header>
+
      <div className='flex flex-col items-center'>
       <div className='mt-60 flex flex-col justify-self-center absolute z-0'>
+        <div className={poppins.className}>
         <h1 className='text-[42px] text-center pb-3 font-bold'>Faça mercado no iFood</h1>
+
+        </div>
         <h3>Entregamos tudo que você precisa na porta de sua casa, de horti-fruti a itens de limpeza</h3>
-        <form action="Pesquisar" className='flex justify-center mt-16 gap-4'>
+        <div className='flex justify-center mt-16 gap-4'>
+
           <div className='flex flex-row bg-gray-200/50 w-[350px] h-12 pt-3 pb-3 pr-8 rounded-lg gap-3'>
           <span><Search className='h-4 w-4 mt-1 ml-4 text-red-500'/></span>
-          <input type="text" placeholder='Em qual endereço você esta?' className='bg-gray-100 w-full h-full text-sm'/>
+          <input onClick={OpenModal} type="text" placeholder='Em qual endereço você esta?' className='bg-gray-100 w-full h-full text-sm'/>
           </div>
-          <button className='bg-red-500 text-white pt-3 pb-3 pl-7 pr-7 rounded-lg text-sm font-semibold'>Ver mercados próximos</button>
-        </form>
+          <button onClick={OpenModal} className='bg-red-500 text-white pt-3 pb-3 pl-7 pr-7 rounded-lg text-sm font-semibold'>Ver mercados próximos</button>
+        </div>
         <div className='flex flex-row mt-12 gap-2 text-xs justify-center'>
-          <button className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Frios</button>
-          <button className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Laticinios</button>
-          <button className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Feira</button>
-          <button className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Bebidas</button>
-          <button className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Doces</button>
-          <button className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Massas Frescas</button>
-          <button className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Limpeza</button>
+          <button onClick={OpenModal} className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Frios</button>
+          <button onClick={OpenModal} className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Laticinios</button>
+          <button onClick={OpenModal} className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Feira</button>
+          <button onClick={OpenModal} className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Bebidas</button>
+          <button onClick={OpenModal} className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Doces</button>
+          <button onClick={OpenModal} className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Massas Frescas</button>
+          <button onClick={OpenModal} className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Limpeza</button>
         </div>
         <div className='flex flex-row mt-2 justify-center gap-2 text-xs'>
-          <button className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Padaria</button>
-          <button className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Higíene</button>
-          <button className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Congelados</button>
-          <button className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Carnes</button>
-          <button className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Cerveja</button>
+          <button onClick={OpenModal} className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Padaria</button>
+          <button onClick={OpenModal} className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Higíene</button>
+          <button onClick={OpenModal} className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Congelados</button>
+          <button onClick={OpenModal} className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Carnes</button>
+          <button onClick={OpenModal} className='text-black bg-white border border-gray-200 rounded-full pr-3 pl-3 pt-2 pb-2'>Cerveja</button>
          
         </div>
       </div>
+      
+         
+      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+        <div>
+          <h1 className='flex justify-center mb-12'>Onde você quer receber seu pedido?</h1>
+          <div className='flex w-full h-16 justify-center items-center bg-gray-100 mb-6'>
+          <span className='bg-gray-100'><Search className='h-4 w-4 mt-1 ml-4 text-red-500'/></span>
+          <input type="text" placeholder='Em qual endereço você esta?' className='bg-gray-100 w-full h-full text-sm'/>
+          </div>
+          <div>
+            <button className='w-full h-16 text-start border-2 border-gray-100 rounded-md mb-24'>Use minha Localização</button>
+          </div>
+
+          <div className='flex flex-col justify-center items-center mb-10'>
+            <h1 className='font-bold'>Já tem um endereço salvo?</h1>
+            <h2 className='text-sm'>Entre na sua conta para selecionar seu endereço.</h2>
+          </div>
+
+          <div className='flex justify-center items-center mb-10'>
+            <button className=' text-red-600 font-semibold'>Entrar ou Cadastrar</button>
+          </div>
+        </div>
+      </Modal>
+         
+
       <div className='flex flex-col static'>
      <Image className=''
       src="/image/ifoodbackground.png"
@@ -162,10 +205,10 @@ export default function Home() {
    
 
    <div className='flex flex-col justify-start'>
-    <h1 className='text-xl font-semibold ml-80 mt-10 mb-10'>Os melhores restaurantes</h1>
+    <h1 className='text-xl font-semibold ml-[310px] mt-10 mb-10'>Os melhores restaurantes</h1>
     {/* Restaurantes */}
-    <div className='flex flex-row justify-center mb-10 gap-4 w-2/3 ml-80'>
-      <a href="" className=' w-60 h-32 border border-gray-200 rounded-md hover:border-fuchsia-950 z-0'>
+    <div className='flex flex-row justify-center mb-10 gap-4 w-full ml-12'>
+      <a href="" className=' w-60 h-[132px] border border-gray-200 rounded-md hover:border-fuchsia-950 z-0'>
         <div className=' flex flex-row z-10'>
         <Image
         className="w-14 h-14 ml-5 mt-9"
@@ -179,11 +222,11 @@ export default function Home() {
           <p className='text-gray-400 flex'>Lanches</p>
        </div>
       
-       <BadgeCheck className='ml-14 mt-4 w-4 h-4 bg-red-600 text-white rounded-full' />
+       <BadgeCheck className='ml-[64px] mt-4 w-4 h-4 bg-red-600 text-white rounded-full' />
 
         </div>
       </a>
-      <a href="" className='bg-white w-60 h-32 border border-gray-200 rounded-md hover:border-fuchsia-950'> <div className=' flex flex-row z-12'>
+      <a href="" className='bg-white w-60 h-[132px] border border-gray-200 rounded-md hover:border-fuchsia-950'> <div className=' flex flex-row z-12'>
         <Image
         className="w-14 h-14 ml-5 mt-9 rounded-full"
         src="/image/cocoBambu.png"
@@ -197,9 +240,9 @@ export default function Home() {
 
 
         </div>
-        <BadgeCheck className='ml-10 mt-4 w-4 h-4 bg-red-600 text-white rounded-full' />
+        <BadgeCheck className='ml-[52px] mt-4 w-4 h-4 bg-red-600 text-white rounded-full' />
         </div></a>
-      <a href="" className='bg-white w-60 h-32 border border-gray-200 rounded-md hover:border-fuchsia-950'> <div className=' flex flex-row z-12'>
+      <a href="" className='bg-white w-60 h-[132px] border border-gray-200 rounded-md hover:border-fuchsia-950'> <div className=' flex flex-row z-12'>
         <Image
         className="w-14 h-14 ml-5 mt-9 rounded-full"
         src="/image/chinaInBox.png"
@@ -213,9 +256,9 @@ export default function Home() {
 
 
         </div>
-        <BadgeCheck className='ml-12 mt-4 w-4 h-4 bg-red-600 text-white rounded-full' />
+        <BadgeCheck className='ml-[60px] mt-4 w-4 h-4 bg-red-600 text-white rounded-full' />
         </div></a>
-      <a href="" className='bg-white w-60 h-32 border border-gray-200 rounded-md hover:border-fuchsia-950'> <div className=' flex flex-row z-12'>
+      <a href="" className='bg-white w-60 h-[132px] border border-gray-200 rounded-md hover:border-fuchsia-950'> <div className=' flex flex-row z-12'>
         <Image
         className="w-14 h-14 ml-5 mt-9 rounded-full"
         src="/image/habibs.png"
@@ -227,9 +270,9 @@ export default function Home() {
           <p className='font-semibold'>Habib's</p>
           <p className='text-gray-400 flex'>Lanches</p>
         </div>
-        <BadgeCheck className='ml-[72px] mt-4 w-4 h-4 bg-red-600 text-white rounded-full' />
+        <BadgeCheck className='ml-[84px] mt-4 w-4 h-4 bg-red-600 text-white rounded-full' />
         </div></a>
-      <a href="" className='bg-white w-60 h-32 border border-gray-200 rounded-md hover:border-fuchsia-950'> <div className=' flex flex-row z-12'>
+      <a href="" className='bg-white w-60 h-[132px] border border-gray-200 rounded-md hover:border-fuchsia-950'> <div className=' flex flex-row z-12'>
         <Image
         className="w-14 h-14 ml-5 mt-9 rounded-full"
         src="/image/outback.png"
@@ -238,17 +281,17 @@ export default function Home() {
         alt="Outback"
       />
         <div className='flex flex-col mt-12 ml-2 text-xs'>
-          <p className='font-semibold'>Outback</p>
+          <p className='font-semibold'>Outback Steakhouse</p>
           <p className='text-gray-400 flex'>Lanches</p>
 
 
         </div>
-        <BadgeCheck className='ml-[72px] mt-4 w-4 h-4 bg-red-600 text-white rounded-full' />
+        <BadgeCheck className='ml-[10px] mt-4 w-4 h-4 bg-red-600 text-white rounded-full' />
         </div></a>
     </div>
    </div>
         {/* Descontos */}
-    <a className='flex flex-row mt-5 justify-center gap-5 mb-16'>
+    <a className='flex flex-row mt-5 justify-center gap-5 mb-16 w-full pr-10'>
       <div>
        <Image src="/image/banner1.png" width={389} height={196} alt='Banner 1' /> 
       </div>
@@ -256,7 +299,7 @@ export default function Home() {
       <Image src="/image/banner2.png" width={389} height={195} alt='Banner 1' /> 
       </div>
       <div>
-      <Image src="/image/banner2.png" width={390} height={195} alt='Banner 1' /> 
+      <Image src="/image/banner3.png" width={390} height={195} alt='Banner 1' /> 
       </div>
 
 
@@ -270,7 +313,7 @@ export default function Home() {
     <h1 className='text-xl font-semibold ml-80 mb-10'>Os melhores mercados</h1>
     {/* Mercados */}
     <div className='flex flex-row mb-10 gap-4 w-2/3 ml-80'>
-      <a href="" className=' w-60 h-32 border border-gray-200 rounded-md hover:border-fuchsia-950 z-0'>
+      <a href="" className=' w-60 h-[132px] border border-gray-200 rounded-md hover:border-fuchsia-950 z-0'>
         <div className=' flex flex-row z-10'>
         <Image
         className="w-14 h-14 ml-5 mt-9 rounded-full"
@@ -284,7 +327,7 @@ export default function Home() {
        </div>
      </div>
       </a>
-      <a href="" className='bg-white w-60 h-32 border border-gray-200 rounded-md hover:border-fuchsia-950'> <div className=' flex flex-row z-12'>
+      <a href="" className='bg-white w-60 h-[132px] border border-gray-200 rounded-md hover:border-fuchsia-950'> <div className=' flex flex-row z-12'>
         <Image
         className="w-14 h-14 ml-5 mt-9 rounded-full"
         src="/image/big.png"
@@ -298,7 +341,7 @@ export default function Home() {
 
         </div>
         </div></a>
-      <a href="" className='bg-white w-60 h-32 border border-gray-200 rounded-md hover:border-fuchsia-950'> <div className=' flex flex-row z-12'>
+      <a href="" className='bg-white w-60 h-[132px] border border-gray-200 rounded-md hover:border-fuchsia-950'> <div className=' flex flex-row z-12'>
         <Image
         className="w-14 h-14 ml-5 mt-9 rounded-full"
         src="/image/eataly.png"
