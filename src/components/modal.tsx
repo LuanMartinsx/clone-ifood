@@ -13,10 +13,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center mt-20">
-      <div className="w-[680px] h-[860px] flex flex-col">
+    <div className="fixed backdrop-brightness-75 flex justify-center items-center mt-20 z-50 w-full h-full -top-20 ">
+      <div className="w-[680px] h-[860px] flex flex-col mt-6">
         <button onClick={() => onClose()} className="text-red-600 text-xl place-self-end">X</button>
-        <div className="bg-white p-2 rounded text-black">{children}</div>
+        <div className="bg-gray-50 p-2 rounded text-black ">{children}</div>
       </div>
     </div>
   );

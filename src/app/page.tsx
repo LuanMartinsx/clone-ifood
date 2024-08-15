@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from "next/link"
 import { Poppins } from 'next/font/google'
-import { BadgeCheck, ChevronRight, Facebook, Search, Twitter, Youtube, Instagram  } from 'lucide-react';
+import { BadgeCheck, ChevronRight, Facebook, Search, Twitter, Youtube, Instagram, LocateFixed, MapPinned  } from 'lucide-react';
 import { useState } from 'react';
 import Modal from '@/components/modal';
 
@@ -15,9 +15,14 @@ const poppins = Poppins({
 })
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false)
+  const [modalOpen2, setModalOpen2] = useState(false)
 
   const OpenModal = () => {
     setModalOpen(true)
+  }
+
+  const openModal2 = () => {
+    setModalOpen2(true)
   }
 
 
@@ -84,14 +89,21 @@ export default function Home() {
       
          
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-        <div>
+        <div className='h-full w-full'>
+          <div className='flex justify-center'> <MapPinned className='h-24 w-24 my-10 text-red-600' /></div>
           <h1 className='flex justify-center mb-12'>Onde você quer receber seu pedido?</h1>
-          <div className='flex w-full h-16 justify-center items-center bg-gray-100 mb-6'>
-          <span className='bg-gray-100'><Search className='h-4 w-4 mt-1 ml-4 text-red-500'/></span>
-          <input type="text" placeholder='Em qual endereço você esta?' className='bg-gray-100 w-full h-full text-sm'/>
+          <div className='flex w-[616px] h-16 justify-center items-center bg-gray-100 mb-6 gap-4 ml-6 border rounded-md'>
+          <span className='bg-gray-100 flex justify-center'><Search className='h-6 w-6 mt-1 ml-4 text-red-500'/></span>
+          <input onClick={openModal2} type="text" placeholder='Em qual endereço você esta?' className=' flex bg-gray-100 w-full h-full text-sm'/>
+          <Modal isOpen={modalOpen2} onClose={() => setModalOpen2(false)}>
+            <div>
+            <div className='flex justify-center'> <MapPinned className='h-24 w-24 my-10 text-red-600' /></div>
+            <h1 className='flex justify-center mb-12'>Onde você quer receber seu pedido?</h1>
+            </div>
+          </Modal>
           </div>
-          <div>
-            <button className='w-full h-16 text-start border-2 border-gray-100 rounded-md mb-24'>Use minha Localização</button>
+          <div className='flex flexr-row items-center'>
+            <button className=' flex w-full h-16 text-start mx-6 border-2 border-gray-100 rounded-md mb-24 items-center gap-4 text-sm'><LocateFixed className='h-8 w-8 ml-4' />Usar minha Localização</button>
           </div>
 
           <div className='flex flex-col justify-center items-center mb-10'>
