@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from "next/link"
 import { Poppins } from 'next/font/google'
-import { BadgeCheck, ChevronRight, Facebook, Search, Twitter, Youtube, Instagram, LocateFixed, MapPinned  } from 'lucide-react';
+import { BadgeCheck, ChevronRight, Facebook, Search, Twitter, Youtube, Instagram, LocateFixed, MapPinned, ChevronLeft  } from 'lucide-react';
 import { useState } from 'react';
 import Modal from '@/components/modal';
 
@@ -23,6 +23,10 @@ export default function Home() {
 
   const openModal2 = () => {
     setModalOpen2(true)
+  }
+
+  const OnClose2 = () => {
+    setModalOpen2(false)
   }
 
 
@@ -54,7 +58,10 @@ export default function Home() {
     </header>
 
      <div className='flex flex-col items-center'>
+      {/* pop up */}
+     <div className='absolute w-80 h-32 bg-black text-white'><h1>ganhe cupons</h1></div>
       <div className='mt-60 flex flex-col justify-self-center absolute z-0'>
+        
         <div className={poppins.className}>
         <h1 className='text-[42px] text-center pb-3 font-bold'>Faça mercado no iFood</h1>
 
@@ -96,9 +103,17 @@ export default function Home() {
           <span className='bg-gray-100 flex justify-center'><Search className='h-6 w-6 mt-1 ml-4 text-red-500'/></span>
           <input onClick={openModal2} type="text" placeholder='Em qual endereço você esta?' className=' flex bg-gray-100 w-full h-full text-sm'/>
           <Modal isOpen={modalOpen2} onClose={() => setModalOpen2(false)}>
-            <div>
+            <div className='h-[600px]'>
             <div className='flex justify-center'> <MapPinned className='h-24 w-24 my-10 text-red-600' /></div>
             <h1 className='flex justify-center mb-12'>Onde você quer receber seu pedido?</h1>
+            <div className='w-[616px] bg-gray-100 h-12 flex flex-row items-center justify-center mb-2 gap-4 ml-6 border rounded-md'>
+            <button onClick={OnClose2}>
+            <span className='h-12 items-center flex justify-center'><ChevronLeft  className='h-8 w-8 mt-1 ml-4 text-red-500'/></span>
+            </button>
+            <input type="text" placeholder='Buscar endereço e número' className=' flex bg-gray-100 w-full h-full text-sm'/>
+            </div>
+            <h2 className='text-sm text-right mr-8'>Powered by Google</h2>
+
             </div>
           </Modal>
           </div>
