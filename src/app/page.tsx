@@ -3,9 +3,10 @@
 import Image from 'next/image'
 import Link from "next/link"
 import { Poppins } from 'next/font/google'
-import { BadgeCheck, ChevronRight, Facebook, Search, Twitter, Youtube, Instagram, LocateFixed, MapPinned, ChevronLeft  } from 'lucide-react';
+import { BadgeCheck, ChevronRight, Facebook, Search, Twitter, Youtube, Instagram, LocateFixed, MapPinned, ChevronLeft, TicketPercent  } from 'lucide-react';
 import { useState } from 'react';
 import Modal from '@/components/modal';
+import ModalPopUp from '@/components/modalPopUp';
 
 
 
@@ -16,6 +17,7 @@ const poppins = Poppins({
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false)
   const [modalOpen2, setModalOpen2] = useState(false)
+  const [popUp, setpopUp] = useState(true)
 
   const OpenModal = () => {
     setModalOpen(true)
@@ -32,7 +34,7 @@ export default function Home() {
 
   return (
     <main>
-     <header className="bg-gray-100 w-full h-32 flex flex-row justify-start gap-12 items-center">
+     <header className="fixed bg-gray-100 w-full h-32 flex flex-row justify-start gap-12 items-center z-50">
      <div className=' ml-80'>
      <Image className='w-24 h-24'
       src="/image/ifood.png"
@@ -53,14 +55,26 @@ export default function Home() {
         <button className='text-red-500 font-semibold text-sm'>criar conta</button>
         <button className='bg-red-500 rounded text-white pt-2 pb-2 pl-6 pr-6 font-semibold'>Entrar</button>
       </div>
-        
+      {/* pop up */}
+      <ModalPopUp isOpen={popUp} onClose={()=> setpopUp(false)}>
+     <div className='flex flex-row gap-6 w-full '>
+     <TicketPercent className="w-16 h-16 text-red-500 ml-2 mt-2" />
+     <div className='flex flex-col mt-2 w-40 gap-2'>
+     <h1 className='text-sm font-semibold'>Ganhe cupons!</h1>
+      <p className='text-sm text-gray-400'>Pegue cupons e <br/> aproveite o desconto</p>
+      <button className='text-sm text-red-500 place-self-start'>Criar conta</button>
+     </div>
+     
+     
+     
+     </div>
+     </ModalPopUp>   
         
     </header>
 
      <div className='flex flex-col items-center'>
-      {/* pop up */}
-     <div className='absolute w-80 h-32 bg-black text-white'><h1>ganhe cupons</h1></div>
-      <div className='mt-60 flex flex-col justify-self-center absolute z-0'>
+     
+      <div className='mt-[360px] flex flex-col justify-self-center absolute z-0'>
         
         <div className={poppins.className}>
         <h1 className='text-[42px] text-center pb-3 font-bold'>Faça mercado no iFood</h1>
@@ -144,11 +158,11 @@ export default function Home() {
       
       {/* Botões Restaurantes e Mercado */}
     </div>  
-      <div className='bg-gray-50 -bottom-52 content-none block h-48 left-0 absolute w-full -z-10 '>
+      <div className='bg-gray-50 -bottom-32 content-none block h-48 left-0 absolute w-full -z-10 '>
 
       </div>
 
-      <div className='flex flex-row absolute justify-center -bottom-80 inset-x-96 gap-8'>
+      <div className='flex flex-row absolute justify-center -bottom-60 inset-x-96 gap-8'>
       <button className='bg-red-600 w-96 h-52 z-10 flex  gap-2 rounded-[24px] duration-100 transform hover:scale-105 transition ease-linear'>
         <p className='text-white text-3xl block mt-10 ml-4 font-bold '>Restaurante</p>
         <div className='bg-red-700/75 w-36 h-9 py-2 text-white absolute bottom-8 text-center ml-5 items-center rounded-xl flex flex-row justify-center text-sm font-semibold'>Ver opções <ChevronRight className='h-4 w-4 ml-2 font-semibold' /></div>
@@ -181,7 +195,7 @@ export default function Home() {
 
       {/* Botoes Bedidas, Farmacia e Pet shop */}
 
-      <div className="bg-white w-full h-44 z-10 flex flex-row justify-center mt-40 gap-32">
+      <div className="bg-white w-full h-44 z-10 flex flex-row justify-center mt-48 gap-32">
       <a className="flex flex-col w-36 h-32 justify-end p-4 items-center mr-6 cursor-pointer duration-100 transform hover:scale-105 transition ease-linear">
       <div className="w-48 h-11 bg-yellow-300 rounded-md relative border-0 block p-0">
       <Image
@@ -234,7 +248,7 @@ export default function Home() {
    <div className='flex flex-col justify-start'>
     <h1 className='text-xl font-semibold ml-[310px] mt-10 mb-10'>Os melhores restaurantes</h1>
     {/* Restaurantes */}
-    <div className='flex flex-row justify-center mb-10 gap-4 w-full ml-12'>
+    <div className='flex flex-row justify-center mb-10 gap-4 w-full ml-2'>
       <a href="" className=' w-60 h-[132px] border border-gray-200 rounded-md hover:border-fuchsia-950 z-0'>
         <div className=' flex flex-row z-10'>
         <Image
