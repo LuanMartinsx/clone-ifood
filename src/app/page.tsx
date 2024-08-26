@@ -7,6 +7,7 @@ import { BadgeCheck, ChevronRight, Facebook, Search, Twitter, Youtube, Instagram
 import { useState } from 'react';
 import Modal from '@/components/modal';
 import ModalPopUp from '@/components/modalPopUp';
+import { useRouter } from 'next/navigation';
 
 
 
@@ -18,6 +19,7 @@ export default function Home() {
   const [modalOpen, setModalOpen] = useState(false)
   const [modalOpen2, setModalOpen2] = useState(false)
   const [popUp, setpopUp] = useState(true)
+  const router = useRouter()
 
   const OpenModal = () => {
     setModalOpen(true)
@@ -52,7 +54,7 @@ export default function Home() {
       <Link href='' className='text-sm font-semibold'>Ifood Card</Link>
       </div>
       <div className='flex flex-row gap-6 ml-72'>
-        <button className='text-red-500 font-semibold text-sm'>criar conta</button>
+        <button className='text-red-500 font-semibold text-sm' onClick={() => {router.push('/register/login')}}>criar conta</button>
         <button className='bg-red-500 rounded text-white pt-2 pb-2 pl-6 pr-6 font-semibold'>Entrar</button>
       </div>
       {/* pop up */}
