@@ -1,6 +1,10 @@
-import { Facebook } from 'lucide-react'
+"use client"
+
+import ModalLogin from '@/components/modalLogin'
+import { ChevronLeft, Facebook } from 'lucide-react'
 import { Poppins } from 'next/font/google'
 import Image from 'next/image'
+import { useState } from 'react'
 
 
 const poppins = Poppins({
@@ -11,7 +15,28 @@ const poppins = Poppins({
 
 export default function login() {
 
+    const [modalCel, setModalCel] = useState(false)
+    const [modalEmail, setModalEmail] = useState(false)
 
+
+
+
+    const setModalCelOpen = () => {
+        setModalCel(true)
+    }
+
+    const setModalCelClose = () => {
+        setModalCel(false)
+    }
+
+  
+    const setModalEmailOpen = () => {
+        setModalEmail(true)
+    }
+
+    const setModalEmailClose = () => {
+        setModalEmail(false)
+    }
 
     return (
         
@@ -52,15 +77,72 @@ export default function login() {
                         Fazer login com o Google</button>
                         <div className='flex flex-row mt-8 gap-8'>
 
-                    <button className='w-48 h-12 flex items-center justify-center bg-white border border-gray-400 text-gray-400 rounded-sm hover:bg-red-500 hover:text-white hover:border-red-500'>Celular</button>
-                    <button className='w-48 h-12 flex items-center justify-center bg-white border border-gray-400 text-gray-400 rounded-sm hover:bg-red-500 hover:text-white hover:border-red-500'>E-mail</button>
+                    <button className='w-48 h-12 flex items-center justify-center bg-white border border-gray-400 text-gray-400 rounded-sm hover:bg-red-500 hover:text-white hover:border-red-500' onClick={setModalCelOpen}>Celular</button>
+                    <button className='w-48 h-12 flex items-center justify-center bg-white border border-gray-400 text-gray-400 rounded-sm hover:bg-red-500 hover:text-white hover:border-red-500' onClick={setModalEmailOpen}>E-mail</button>
+
+                    
                             
                         </div>
                         <div>
                         <hr className='bg-black mt-10 w-[415px]' />
 
                         </div>
+
+                        
                 </div>
+
+                <ModalLogin isOpen={modalCel} onClose={() => {setModalCel(false)}}>
+                        <div>
+                        <button onClick={setModalCelClose} className='mt-4'>
+                            <span className='items-center'><ChevronLeft  className='h-8 w-8 text-red-500'/></span>
+                        </button>
+                        </div>
+                        <div className="flex justify-center items-center">
+                            <p>Informe o número do seu celular para continuar</p>
+                        </div>
+                        <div className='flex flex-row gap-2 w-full mt-5 justify-center items-center'>
+                            <input className='w-20 h-12 bg-gray-300' type="text" placeholder='brazil +55' />
+                            <input className='w-80 h-14 border border-b-gray-400' type="text" placeholder='Informe o seu número de celular' />
+                        </div>
+                        
+                        <div className='flex justify-center items-center mt-4'>
+                            <p>Como deseja receber seu código?</p>
+                        </div>
+                        <div className='flex justify-center items-center'>
+
+                        <button className='bg-red-600 w-96 h-14 mt-4'>WhatsApp</button>
+                        </div>
+
+                        
+                        
+                        
+                        </ModalLogin>
+
+                        <ModalLogin isOpen={modalEmail} onClose={() => {setModalCel(false)}}>
+                        <div>
+                        <button onClick={setModalEmailClose} className='mt-4'>
+                            <span className='items-center'><ChevronLeft  className='h-8 w-8 text-red-500'/></span>
+                        </button>
+                        </div>
+                        <div className="flex justify-center items-center">
+                            <p>Informe o seu e-mail para continuar</p>
+                        </div>
+                        <div className='flex flex-row gap-2 w-full mt-5 justify-center items-center'>
+                            <input className='w-80 h-14 border border-b-gray-400' type="text" placeholder='Informe o seu número de celular' />
+                        </div>
+                        
+                        <div className='flex justify-center items-center mt-4'>
+                            <p className='text-sm'>O iFood poderá enviar comunicações neste e-mail. Caso não queira receber comunicações nesse canal, é só acessar a opção “Configurações” no aplicativo ou se desinscrever na sua caixa de e-mail.</p>
+                        </div>
+                        <div className='flex justify-center items-center'>
+
+                        <button className='bg-red-600 w-96 h-14 mt-4'>Continuar</button>
+                        </div>
+
+                        
+                        
+                        
+                        </ModalLogin>
 
 
 
