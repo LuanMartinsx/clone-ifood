@@ -54,7 +54,7 @@ export default function login() {
                 </div>
 
 
-                <div className='w-[500px] h-[495px] bg-white flex flex-col mt-28 ml-[1000px] items-center rounded-md shadow-md'>
+                <div className='w-[500px] h-[435px] bg-white flex flex-col mt-28 ml-[1000px] items-center rounded-md shadow-md'>
                     <div className={poppins.className}>
                     <p className='text-4xl font-bold mt-12'>Falta pouco para <br /> matar sua fome!</p>
                     <p className='text-xl mt-6 mb-8 font-semibold text-gray-500 ml-8'>Como deseja continuar?</p>
@@ -83,10 +83,6 @@ export default function login() {
                     
                             
                         </div>
-                        <div>
-                        <hr className='bg-black mt-10 w-[415px]' />
-
-                        </div>
 
                         
                 </div>
@@ -98,19 +94,19 @@ export default function login() {
                         </button>
                         </div>
                         <div className="flex justify-center items-center">
-                            <p>Informe o número do seu celular para continuar</p>
+                            <p className='text-gray-500/80 font-semibold '>Informe o número do seu celular para continuar</p>
                         </div>
                         <div className='flex flex-row gap-2 w-full mt-5 justify-center items-center'>
-                            <input className='w-20 h-12 bg-gray-300' type="text" placeholder='brazil +55' />
-                            <input className='w-80 h-14 border border-b-gray-400' type="text" placeholder='Informe o seu número de celular' />
+                            <div className='w-20 h-12 bg-gray-300 flex justify-center items-center rounded'><svg className="w-6 h-6 mr-1" enable-background="new 0 0 512 512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><circle cx="256" cy="256" fill="#6da544" r="256"/><path d="m256 100.174 211.478 155.826-211.478 155.826-211.478-155.826z" fill="#ffda44"/><circle cx="256" cy="256" fill="#f0f0f0" r="89.043"/><g fill="#0052b4"><path d="m211.478 250.435c-15.484 0-30.427 2.355-44.493 6.725.623 48.64 40.227 87.884 89.015 87.884 30.168 0 56.812-15.017 72.919-37.968-27.557-34.497-69.958-56.641-117.441-56.641z"/><path d="m343.393 273.06c1.072-5.524 1.651-11.223 1.651-17.06 0-49.178-39.866-89.043-89.043-89.043-36.694 0-68.194 22.201-81.826 53.899 12.05-2.497 24.526-3.812 37.305-3.812 51.717-.001 98.503 21.497 131.913 56.016z"/></g><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/></svg> + 55</div>
+                            <input className='w-80 h-12 border border-b-gray-400 rounded ' type="text" placeholder='   Informe o seu número de celular' />
                         </div>
                         
                         <div className='flex justify-center items-center mt-4'>
-                            <p>Como deseja receber seu código?</p>
+                            <p className=''>Como deseja receber seu código?</p>
                         </div>
                         <div className='flex justify-center items-center'>
 
-                        <button className='bg-red-600 w-96 h-14 mt-4'>WhatsApp</button>
+                        <button className='bg-red-600 w-[420px] h-12 mt-4 text-white hover:bg-red-600/80 rounded'>WhatsApp</button>
                         </div>
 
                         
@@ -125,18 +121,18 @@ export default function login() {
                         </button>
                         </div>
                         <div className="flex justify-center items-center">
-                            <p>Informe o seu e-mail para continuar</p>
+                            <p className='text-gray-500/80 font-semibold'>Informe o seu e-mail para continuar</p>
                         </div>
                         <div className='flex flex-row gap-2 w-full mt-5 justify-center items-center'>
-                            <input className='w-80 h-14 border border-b-gray-400' type="text" placeholder='Informe o seu número de celular' />
+                            <input className='w-[420px] h-12 border border-b-gray-400' type="text" placeholder='   Informe o seu e-mail' />
                         </div>
                         
                         <div className='flex justify-center items-center mt-4'>
-                            <p className='text-sm'>O iFood poderá enviar comunicações neste e-mail. Caso não queira receber comunicações nesse canal, é só acessar a opção “Configurações” no aplicativo ou se desinscrever na sua caixa de e-mail.</p>
+                            <p className='text-xs text-start ml-2'>O iFood poderá enviar comunicações neste e-mail. Caso não queira <br/> receber comunicações nesse canal, é só acessar a opção “Configurações” <br/> no aplicativo ou se desinscrever na sua caixa de e-mail.</p>
                         </div>
                         <div className='flex justify-center items-center'>
 
-                        <button className='bg-red-600 w-96 h-14 mt-4'>Continuar</button>
+                        <button className='bg-red-600 w-[420px] h-12 mt-4 text-white hover:bg-red-600/80'>Continuar</button>
                         </div>
 
                         

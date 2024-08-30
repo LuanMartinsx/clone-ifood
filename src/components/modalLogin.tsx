@@ -25,7 +25,7 @@ const ModalLogin: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
                         />
 
                 </div>
-      <div className="w-[500px] h-[320px] bg-white flex flex-col mt-5 ml-[620px] rounded-md shadow-md">
+      <div className="w-[520px] h-[320px] bg-white flex flex-col mt-5 ml-[620px] rounded-md shadow-md">
         <div className="bg-gray-50 p-2 rounded text-black ">{children}</div>
       </div>
     </div>
